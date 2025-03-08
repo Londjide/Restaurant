@@ -1,6 +1,6 @@
 package h25.msd.poo2.menu;
 
-public class Entree {
+public class Entree implements MenuItem { // implementation de la classe MenuItem
     public static final double RABAIS_POUR_SEUIL = 0.05;
     public static final double RABAIS_DINER = 0.02;
 
@@ -27,8 +27,8 @@ public class Entree {
 
         double rabaisEntree = 0;
 
-        //rabais météo
-        rabaisEntree = temperature < 0 ? -Math.max(-30, Math.min(temperature, 0)) * prix / 100.0f: 0;
+        // rabais météo
+        rabaisEntree = temperature < 0 ? -Math.max(-30, Math.min(temperature, 0)) * prix / 100.0f : 0;
 
         // rabais de volume
         if (montantTotal > seuilRabais) {
@@ -49,6 +49,7 @@ public class Entree {
     public double getPrix() {
         return prix;
     }
+
     public String getNom() {
         return nom;
     }

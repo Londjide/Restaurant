@@ -1,6 +1,6 @@
 package h25.msd.poo2.menu;
 
-public class Dessert {
+public class Dessert implements MenuItem {// implementation de la classe MenuItem 
     public static final double RABAIS_JOURNALIER = 0.03;
     public static final double RABAIS_SOUPER = 0.04;
 
@@ -11,10 +11,10 @@ public class Dessert {
     private double temperature;
 
     public Dessert(String nom,
-                   double prix,
-                   PeriodeJournee periodeJournee,
-                   JoursSemaine joursSemaine,
-                   double temperature) {
+            double prix,
+            PeriodeJournee periodeJournee,
+            JoursSemaine joursSemaine,
+            double temperature) {
         this.nom = nom;
         this.prix = prix;
         this.periodeJournee = periodeJournee;
@@ -26,8 +26,8 @@ public class Dessert {
 
         double rabaisDessert = 0;
 
-        //rabais météo
-        rabaisDessert = temperature < 0 ? -Math.max(-30, Math.min(temperature, 0)) * prix / 100.0f: 0;
+        // rabais météo
+        rabaisDessert = temperature < 0 ? -Math.max(-30, Math.min(temperature, 0)) * prix / 100.0f : 0;
 
         // rabais moment du jour
         if (periodeJournee.equals(PeriodeJournee.DINER)) {
@@ -49,6 +49,7 @@ public class Dessert {
     public double getPrix() {
         return prix;
     }
+
     public String getNom() {
         return nom;
     }
